@@ -1,20 +1,12 @@
-# Виртуальное окружение
 env/
 .venv/
 
-# IDE
 .idea/
 .vscode/
 
-# Локальные настройки
 .env
 
-# База данных
-*.sqlite3
-
-# Кэш Python
 __pycache__/
 *.pyc
 
-# Логи
-*.log
+/media/
