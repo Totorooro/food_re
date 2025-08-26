@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="main">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="filter_filters"><h3>Фильтры</h3></div>
+                <button class="reset-btn">Сбросить</button>
+            </div>
+
+            <hr>
+
+            <div class="filter-section">
+                <h4>Категория</h4>
+                <div class="filter-option active">Все категории</div>
+                <div class="filter-option">Основные блюда</div>
+                <div class="filter-option">Салаты</div>
+                <div class="filter-option">Супы</div>
+                <div class="filter-option">Десерты</div>
+                <div class="filter-option">Напитки</div>
+            </div>
+
+            <hr>
+
+            <div class="filter-section">
+                <h4>Сложность</h4>
+                <div class="filter-option active">Все</div>
+                <div class="filter-option">Легко</div>
+                <div class="filter-option">Средне</div>
+                <div class="filter-option">Сложно</div>
+            </div>
+
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <h1>Каталог блюд</h1>
+                <span>Найдено: 6 блюд</span>
+            </div>
+
+
+            <div class="dishes-grid">
+                {% for dish in dishes %}
+                <div class="dish-card">
+                    <div class="dish-image-container">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="{{ dish.name }}" class="dish-image">
+                        <div class="difficulty-tag tag-{{ dish.difficulty }}">👨🏻‍🍳 {{ dish.get_difficulty_display }}</div>
+                    </div>
+                    <div class="dish-info">
+                        <h3>{{ dish.name }}</h3>
+                        <p>{{ dish.descr }}</p>
+                        <div class="dish-meta">
+                            <div class="rating">
+                                <span class="stars">★</span>
+                                <span class="rating-text">4.8</span>
+                                <span class="rating-count">(124)</span>
+                            </div>
+                            <div class="time">
+                                <i class="far fa-clock"></i>
+                                <span>⏱️ {{ dish.cooking_time }} мин</span>
+                            </div>
+                        </div>
+                        <span class="category">Основные блюда</span>
+
+                    </div>
+                    <div class="price">{{ dish.dish_price }} ₽</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+{% endblock %}

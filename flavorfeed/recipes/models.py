@@ -13,6 +13,7 @@ class Dish(models.Model):
 
 
     name = models.CharField(max_length=50, verbose_name='Название блюда')
+    descr = models.TextField(max_length=80, verbose_name='Описание блюда', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True)
     photo = models.ImageField(upload_to='dishes/', default=None, null=True, blank=True, verbose_name='Фотография блюда')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
@@ -32,3 +33,5 @@ class Dish(models.Model):
     class Meta:
         verbose_name = 'Блюдо'
         verbose_name_plural = 'Блюда'
+
+
