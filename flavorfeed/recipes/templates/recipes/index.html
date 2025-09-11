@@ -13,22 +13,18 @@
 
             <div class="filter-section">
                 <h4>Категория</h4>
-                <div class="filter-option active">Все категории</div>
-                <div class="filter-option">Основные блюда</div>
-                <div class="filter-option">Салаты</div>
-                <div class="filter-option">Супы</div>
-                <div class="filter-option">Десерты</div>
-                <div class="filter-option">Напитки</div>
+                <div class="filter-option active" data-category="all">Все категории</div>
+                {% for category in categories %}
+                <div class="filter-option" data-category="{{ category.slug }}">{{ category.name }}</div>
+            {% endfor %}
             </div>
-
             <hr>
-
             <div class="filter-section">
                 <h4>Сложность</h4>
-                <div class="filter-option active">Все</div>
-                <div class="filter-option">Легко</div>
-                <div class="filter-option">Средне</div>
-                <div class="filter-option">Сложно</div>
+                <div class="filter-option active" data-difficulty="all">Все</div>
+                <div class="filter-option" data-difficulty="easy">Легко</div>
+                <div class="filter-option" data-difficulty="medium">Средне</div>
+                <div class="filter-option" data-difficulty="hard">Сложно</div>
             </div>
 
         </div>
