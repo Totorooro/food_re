@@ -1,0 +1,98 @@
+[
+{
+  "model": "recipes.dish",
+  "pk": 1,
+  "fields": {
+    "name": "Паста Карбонара",
+    "descr": "Классическая итальянская паста с беконом, яйцами и сыром пармезан",
+    "slug": "pasta-karbonara",
+    "photo": "dishes/pasta_carbonara.jpg",
+    "time_create": "2025-08-25T15:48:39.994Z",
+    "time_update": "2025-08-26T19:30:29.383Z",
+    "cooking_time": 25,
+    "dish_price": 450,
+    "difficulty": "medium",
+    "cat": 1
+  }
+},
+{
+  "model": "recipes.dish",
+  "pk": 2,
+  "fields": {
+    "name": "Салат с курицей гриль",
+    "descr": "Свежий салат с сочной курицей гриль, овощами и заправкой",
+    "slug": "salat-s-kuritsei-gril",
+    "photo": "dishes/salad.jfif",
+    "time_create": "2025-08-25T17:40:26.142Z",
+    "time_update": "2025-08-26T22:09:43.411Z",
+    "cooking_time": 15,
+    "dish_price": 380,
+    "difficulty": "easy",
+    "cat": 2
+  }
+},
+{
+  "model": "recipes.dish",
+  "pk": 3,
+  "fields": {
+    "name": "Шоколадный торт",
+    "descr": "Нежный шоколадный торт с кремовой начинкой",
+    "slug": "shokoladnyi-tort",
+    "photo": "dishes/cake_choco.jpg",
+    "time_create": "2025-08-26T19:46:17.677Z",
+    "time_update": "2025-08-26T19:46:17.677Z",
+    "cooking_time": 90,
+    "dish_price": 650,
+    "difficulty": "hard",
+    "cat": 4
+  }
+},
+{
+  "model": "recipes.dish",
+  "pk": 4,
+  "fields": {
+    "name": "Овощной суп",
+    "descr": "Полезный и сытный суп из свежих овощей",
+    "slug": "ovoshchnoi-sup",
+    "photo": "dishes/veg_sup.jfif",
+    "time_create": "2025-08-26T19:50:02.351Z",
+    "time_update": "2025-08-26T19:50:02.351Z",
+    "cooking_time": 30,
+    "dish_price": 280,
+    "difficulty": "easy",
+    "cat": 3
+  }
+},
+{
+  "model": "recipes.dish",
+  "pk": 5,
+  "fields": {
+    "name": "Стейк из говядины",
+    "descr": "Сочный стейк из премиальной говядины с овощами гриль",
+    "slug": "steik-iz-goviadiny",
+    "photo": "dishes/stake_gov.jpg",
+    "time_create": "2025-08-26T19:53:00.585Z",
+    "time_update": "2025-08-26T19:53:00.585Z",
+    "cooking_time": 20,
+    "dish_price": 890,
+    "difficulty": "medium",
+    "cat": 1
+  }
+},
+{
+  "model": "recipes.dish",
+  "pk": 6,
+  "fields": {
+    "name": "Паэлья с морепродуктами",
+    "descr": "Традиционная испанская паэлья с креветками, мидиями и кальмарами",
+    "slug": "paelia-s-moreproduktami",
+    "photo": "dishes/palia.webp",
+    "time_create": "2025-08-26T19:55:30.000Z",
+    "time_update": "2025-08-26T19:55:30.000Z",
+    "cooking_time": 45,
+    "dish_price": 450,
+    "difficulty": "hard",
+    "cat": 1
+  }
+}
+]
