@@ -1,41 +1,38 @@
 {% extends 'base.html' %}
+{% load filter_tags %}
 
 {% block content %}
-
 <div class="main">
         <div class="sidebar">
             <div class="sidebar-header">
                 <div class="filter_filters"><h3>Фильтры</h3></div>
-                <button class="reset-btn">Сбросить</button>
+                {% with request.GET.page as current_page %}
+                <a href="{% if current_page %}?page={{ current_page }}{% else %}?{% endif %}" class="reset-btn">Сбросить</a>
+                {% endwith %}
             </div>
 
             <hr>
-
             <div class="filter-section">
                 <h4>Категория</h4>
-                <div class="filter-option active" data-category="all">Все категории</div>
+                <a href="{% filter_url 'category' 'all' %}" class="filter-option {% is_active 'category' 'all' %}">Все категории</a>
                 {% for category in categories %}
-                <div class="filter-option" data-category="{{ category.slug }}">{{ category.name }}</div>
-            {% endfor %}
+                <a href="{% filter_url 'category' category.slug %}" class="filter-option {% is_active 'category' category.slug %}">{{ category.name }}</a>
+                {% endfor %}
             </div>
             <hr>
             <div class="filter-section">
                 <h4>Сложность</h4>
-                <div class="filter-option active" data-difficulty="all">Все</div>
-                <div class="filter-option" data-difficulty="easy">Легко</div>
-                <div class="filter-option" data-difficulty="medium">Средне</div>
-                <div class="filter-option" data-difficulty="hard">Сложно</div>
+                <a href="{% filter_url 'difficulty' 'all' %}" class="filter-option {% is_active 'difficulty' 'all' %}">Все</a>
+                <a href="{% filter_url 'difficulty' 'easy' %}" class="filter-option {% is_active 'difficulty' 'easy' %}">Легко</a>
+                <a href="{% filter_url 'difficulty' 'medium' %}" class="filter-option {% is_active 'difficulty' 'medium' %}">Средне</a>
+                <a href="{% filter_url 'difficulty' 'hard' %}" class="filter-option {% is_active 'difficulty' 'hard' %}">Сложно</a>
             </div>
-
         </div>
-
         <div class="content">
             <div class="content-header">
                 <h1>Каталог блюд</h1>
-                <span>Найдено: 6 блюд</span>
+                <span>Найдено: {{ paginator.count }} блюд</span>
             </div>
-
-
             <div class="dishes-grid">
                 {% for dish in dishes %}
                 <div class="dish-card">
@@ -58,7 +55,6 @@
                             </div>
                         </div>
                         <span class="category">{{ dish.cat }}</span>
-
                     </div>
                     <div class="price">{{ dish.dish_price }} ₽</div>
                 </div>
@@ -67,3 +63,19 @@
         </div>
 </div>
 {% endblock %}
+{% block navigation %}
+<nav class="pagination">
+    <ul>
+        {% for p in paginator.page_range %}
+        <li class="list-pages {% if p == page_obj.number %}active{% endif %}">
+            {% if p == page_obj.number %}
+            <span>{{ p }}</span>
+            {% else %}
+            <a href="{% filter_url 'page' p %}">{{ p }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endblock %}
+

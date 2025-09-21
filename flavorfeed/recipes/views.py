@@ -4,6 +4,7 @@ from .models import Dish, Category
 class RecipesView(ListView):
     template_name = 'recipes/index.html'
     context_object_name = 'dishes'
+    paginate_by = 6
 
     def get_queryset(self):
         queryset = Dish.objects.all()
