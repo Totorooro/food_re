@@ -25,7 +25,7 @@ class Dish(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(unidecode(str(self.name)))
+            self.slug = slugify(unidecode(str(self.name))) # преобразует slug 
         super().save(*args, **kwargs)
 
     def __str__(self):
