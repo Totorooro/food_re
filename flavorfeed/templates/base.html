@@ -15,7 +15,19 @@
         </div>
         <div class="header-actions">
             <span>❤️ Избранное</span>
-            <a href="{% url 'users:login' %}"><span class="profile">Войти</span></a>
+            {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">
+                    Выйти
+                </button>
+            </form>
+            {% else %}
+                <a href="{% url 'users:login' %}?next={{ request.path }}" class="header-link">
+                    Войти
+                </a>
+            {% endif %}
         </div>
     </header>
 
