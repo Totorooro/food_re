@@ -8,4 +8,5 @@ app_name = 'users'
 urlpatterns = [
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('home')), name='logout'),
+    path('register/', views.RegisterUser.as_view(), name='register')
 ]
