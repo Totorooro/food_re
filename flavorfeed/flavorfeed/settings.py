@@ -136,7 +136,7 @@ AUTH_USER_MODEL = 'users.User'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_URL = 'users:login '
+LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -144,3 +144,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'users.authentication.EmailAuthBackend',
 ]
+
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
