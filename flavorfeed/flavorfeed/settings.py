@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'recipes.apps.RecipesConfig',
     'users',
     'social_django',
+    'recipe_info',
 ]
 
 MIDDLEWARE = [
