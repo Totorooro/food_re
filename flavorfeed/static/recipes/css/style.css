@@ -527,7 +527,6 @@
             font-size: 14.5px;
         }
 
-        /* Формы */
         .auth-form {
             text-align: left;
         }
@@ -598,7 +597,6 @@
             font-size: 13px;
             margin-top: 6px;
         }
-        /* ===================== СОЦИАЛЬНЫЕ КНОПКИ ===================== */
         .social-buttons {
             margin-top: 30px;
             display: flex;
@@ -663,4 +661,194 @@
         .social-btn img, .social-btn svg {
             width: 20px;
             height: 20px;
+        }
+        .dish-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* ===================== СТРАНИЦА РЕЦЕПТА ===================== */
+        .dish-detail-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-to-catalog {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #666;
+            text-decoration: none;
+            font-size: 15px;
+
+        }
+
+        .back-to-catalog:hover {
+            color: #333;
+        }
+
+        .dish-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+            align-items: start;
+        }
+
+        .dish-photo-large img {
+            margin-left: 150px;
+            width: 60%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .dish-info-large h1 {
+            font-size: 26px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .dish-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 24px;
+        }
+
+        .dish-tags {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .dish-rating {
+            font-size: 15px;
+            margin-bottom: 32px;
+            color: #f39c12;
+        }
+
+        .reviews-count {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .dish-price-and-save {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
+        }
+
+        .price-large {
+            font-size: 24px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .save-button {
+            background: white;
+            border: 2px solid #e0e0e0;
+            color: #333;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .save-button:hover {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .save-button.active,
+        .save-button:active {
+            background: #e74c3c;
+            color: white;
+            border-color: #e74c3c;
+        }
+
+        /* Ингредиенты */
+        .ingredients-block,
+        .steps-block {
+            margin-bottom: 60px;
+        }
+        .ingredients-block h2,
+        .steps-block h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        .ingredients-list {
+            background: antiquewhite;
+            padding: 16px;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .ingredient-row {
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+        }
+        .ingredient-row::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #27ae60;
+            margin-right: 8px;
+        }
+        .ingredient-amount {
+            font-weight: 600;
+            margin-right: 8px;
+            color: #333;
+        }
+
+        /* Шаги */
+        .steps-list {
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: #6c5ce7;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
         }

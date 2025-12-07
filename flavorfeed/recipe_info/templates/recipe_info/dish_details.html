@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dish-detail-page">
+    <a href="{% url 'home' %}" class="back-to-catalog">
+        ← Назад к каталогу
+    </a>
+
+    <div class="dish-detail-grid">
+        <div class="dish-photo-large">
+            <img src="{{ dish.photo.url }}" alt="{{ dish.name }}">
+        </div>
+
+
+        <div class="dish-info-large">
+            <h1 class="dish-title">{{ dish.name }}</h1>
+            <p class="dish-description">{{ dish.descr|linebreaks }}</p>
+
+            <div class="dish-tags">
+                <span class="tag difficulty tag-{{ dish.difficulty }}">
+                    {{ dish.get_difficulty_display }}
+                </span>
+                <span class="tag time">⏱ {{ dish.cooking_time }} мин</span>
+                <span class="tag category-tag">{{ dish.cat.name }}</span>
+            </div>
+
+            <div class="dish-rating">
+                <span >★</span> 4.8 <span class="reviews-count">(124 отзыва)</span>
+            </div>
+
+            <div class="dish-price-and-save">
+                <div class="price-large">{{ dish.dish_price }} ₽</div>
+
+                <button class="save-button" id="favorite-btn" data-dish-id="{{ dish.id }}">
+                    {% if request.user.is_authenticated and dish in request.user.favorite_dishes.all %}
+                        Сохранено
+                    {% else %}
+                        Сохранить
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ingredients-block">
+        <h2>Ингредиенты</h2>
+        <div class="ingredients-list">
+            {% for item in dish.dish_ingredients.all %}
+                <div class="ingredient-row">
+                    <span class="ingredient-amount">{{ item.amount }}</span>
+                    <span class="ingredient-name">{{ item.ingredient.name }}</span>
+                </div>
+            {% empty %}
+                <p>Ингредиенты не указаны.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="steps-block">
+        <h2>Пошаговый рецепт</h2>
+        <div class="steps-list">
+            {% for step in dish.steps.all %}
+                <div class="step-item">
+                    <div class="step-number">{{ step.number }}</div>
+                    <div class="step-text">{{ step.description|linebreaks }}</div>
+                </div>
+            {% empty %}
+                <p>Пошаговый рецепт не указан.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

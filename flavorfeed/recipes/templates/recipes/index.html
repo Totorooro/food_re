@@ -35,29 +35,30 @@
             </div>
             <div class="dishes-grid">
                 {% for dish in dishes %}
-                <div class="dish-card">
-                    <div class="dish-image-container">
-                        <img src="{{ dish.photo.url }}" alt="{{ dish.name }}" class="dish-image">
-                        <div class="difficulty-tag tag-{{ dish.difficulty }}">👨🏻‍🍳 {{ dish.get_difficulty_display }}</div>
-                    </div>
-                    <div class="dish-info">
-                        <h3>{{ dish.name }}</h3>
-                        <p>{{ dish.descr }}</p>
-                        <div class="dish-meta">
-                            <div class="rating">
-                                <span class="stars">★</span>
-                                <span class="rating-text">4.8</span>
-                                <span class="rating-count">(124)</span>
-                            </div>
-                            <div class="time">
-                                <i class="far fa-clock"></i>
-                                <span>⏱️ {{ dish.cooking_time }} мин</span>
-                            </div>
+                    <div class="dish-card">
+                        <a href="{% url 'recipe_info:dish_detail' dish.slug %}" class="dish-card-link">
+                        <div class="dish-image-container">
+                            <img src="{{ dish.photo.url }}" alt="{{ dish.name }}" class="dish-image">
+                            <div class="difficulty-tag tag-{{ dish.difficulty }}">👨🏻‍🍳 {{ dish.get_difficulty_display }}</div>
                         </div>
-                        <span class="category">{{ dish.cat }}</span>
+                        <div class="dish-info">
+                            <h3>{{ dish.name }}</h3>
+                            <p>{{ dish.descr }}</p>
+                            <div class="dish-meta">
+                                <div class="rating">
+                                    <span class="stars">★</span>
+                                    <span class="rating-text">4.8</span>
+                                    <span class="rating-count">(124)</span>
+                                </div>
+                                <div class="time">
+                                    <span>⏱️ {{ dish.cooking_time }} мин</span>
+                                </div>
+                            </div>
+                            <span class="category">{{ dish.cat }}</span>
+                        </div>
+                        <div class="price">{{ dish.dish_price }} ₽</div>
+                        </a>
                     </div>
-                    <div class="price">{{ dish.dish_price }} ₽</div>
-                </div>
                 {% endfor %}
             </div>
         </div>

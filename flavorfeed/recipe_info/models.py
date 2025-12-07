@@ -3,7 +3,7 @@ from recipes.models import Dish
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Название ингредиента")
+    name = models.CharField(max_length=100, verbose_name="Название ингредиента", unique=True)
 
     def __str__(self):
         return self.name
@@ -16,7 +16,7 @@ class Ingredient(models.Model):
 class DishIngredient(models.Model):
     dish = models.ForeignKey(Dish, on_delete=models.CASCADE, related_name='dish_ingredients')
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    amount = models.CharField(max_length=50, verbose_name="Количество", help_text="например: 400 г, 3 шт, 1 ч.л.")
+    amount = models.CharField(max_length=50, verbose_name="Количество", blank=True)
 
     class Meta:
         ordering = ['id']
