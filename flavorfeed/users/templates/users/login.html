@@ -34,6 +34,16 @@
             <a href="{% url 'users:register' %}">Зарегистрироваться</a>
             <p><a href="{% url 'users:password_reset' %}">Забыли пароль?</a></p>
         </p>
+        <div class="social-buttons">
+            <a href="{% url 'social:begin' 'github' %}" class="social-btn github-btn">
+                <img src="{% static 'recipes/img/social/github.png' %}" alt="GitHub">
+                Войти через GitHub
+            </a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}" class="social-btn google-btn">
+                <img src="{% static 'recipes/img/social/google.png' %}" alt="Google">
+                Войти через Google
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}

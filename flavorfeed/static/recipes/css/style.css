@@ -598,3 +598,69 @@
             font-size: 13px;
             margin-top: 6px;
         }
+        /* ===================== СОЦИАЛЬНЫЕ КНОПКИ ===================== */
+        .social-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .github-btn {
+            background: #333;
+            color: white;
+        }
+
+        .github-btn:hover {
+            background: #222;
+            transform: translateY(-1px);
+        }
+
+        .google-btn {
+            background: white;
+            color: #333;
+            border: 1.5px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .google-btn:hover {
+            background: #f8f9fa;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .vk-btn {
+            background: #4680C2;
+            color: white;
+        }
+
+        .vk-btn:hover {
+            background: #3a6aa0;
+        }
+
+        .yandex-btn {
+            background: #000;
+            color: white;
+        }
+
+        .yandex-btn:hover {
+            background: #111;
+        }
+
+        .social-btn img, .social-btn svg {
+            width: 20px;
+            height: 20px;
+        }

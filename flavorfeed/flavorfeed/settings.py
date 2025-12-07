@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'recipes.apps.RecipesConfig',
     'users',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,8 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     'users.authentication.EmailAuthBackend',
 ]
@@ -158,3 +161,11 @@ DEFAULT_FROM_EMAIL = f"{os.getenv('EMAIL_FROM_NAME')} <{os.getenv('EMAIL_FROM_AD
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 EMAIL_SUBJECT_PREFIX = '[FlavorFeed] '
+
+
+SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
+SOCIAL_AUTH_GITHUB_SCOPE = ['read:user', 'user:email']
+SOCIAL_AUTH_GITHUB_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email'}
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_SECRET')
